@@ -965,7 +965,7 @@ ul {
 
 .section-mentor {
   background-color: var(--bg-white);
-  padding: 0;
+  padding: 40px 0 30px 0;
   width: 100%;
   overflow: hidden;
   position: relative;
@@ -975,7 +975,7 @@ ul {
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 720px;
+  min-height: auto;
 }
 
 .mentor-image-col {
@@ -984,15 +984,16 @@ ul {
   max-width: 50%;
   display: flex;
   justify-content: flex-start;
-  align-items: stretch;
+  align-items: center;
+  padding-top: 15px;
 }
 
 .mentor-img {
   width: 100%;
   height: auto;
-  max-height: 850px;
-  object-fit: cover;
-  object-position: left center;
+  max-height: 820px;
+  object-fit: contain;
+  object-position: left top;
   display: block;
 }
 
@@ -1003,7 +1004,7 @@ ul {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding: 60px 40px 60px 50px;
+  padding: 30px 40px 30px 50px;
 }
 
 .mentor-content {
