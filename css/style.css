@@ -965,31 +965,49 @@ ul {
 
 .section-mentor {
   background-color: var(--bg-white);
-  padding: 85px 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
   position: relative;
 }
 
-.mentor-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.mentor-wrapper {
+  display: flex;
   align-items: center;
-  gap: 50px;
+  width: 100%;
+  min-height: 720px;
 }
 
 .mentor-image-col {
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 
 .mentor-img {
   width: 100%;
-  max-width: 530px;
   height: auto;
+  max-height: 850px;
+  object-fit: cover;
+  object-position: left center;
   display: block;
 }
 
+.mentor-content-col {
+  flex: 0 0 50%;
+  width: 50%;
+  max-width: 50%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 60px 40px 60px 50px;
+}
+
 .mentor-content {
+  max-width: 580px;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -1182,8 +1200,8 @@ ul {
     flex: 0 0 calc(50% - 13px);
   }
 
-  .mentor-grid {
-    gap: 30px;
+  .mentor-content-col {
+    padding: 40px 25px;
   }
 }
 
@@ -1301,29 +1319,30 @@ ul {
     padding: 0 0 35px 0;
   }
 
-  .section-mentor .container {
-    padding: 0;
-    max-width: 100%;
-  }
-
-  .mentor-grid {
-    display: flex;
+  .mentor-wrapper {
     flex-direction: column;
-    gap: 0;
+    min-height: auto;
+    width: 100%;
   }
 
   .mentor-image-col {
+    flex: 0 0 100%;
     width: 100%;
-    padding: 0;
-    margin: 0;
+    max-width: 100%;
   }
 
   .mentor-img {
     width: 100%;
-    max-width: 100%;
-    height: auto;
+    max-height: none;
     display: block;
     margin: 0;
+  }
+
+  .mentor-content-col {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
   }
 
   .mentor-content {
@@ -1331,6 +1350,7 @@ ul {
     z-index: 2;
     margin: -70px 14px 0 14px;
     width: calc(100% - 28px);
+    max-width: 100%;
     background: #FFFFFF;
     border-radius: 14px;
     padding: 30px 18px 25px;
