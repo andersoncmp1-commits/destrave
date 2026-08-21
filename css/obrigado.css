@@ -1,0 +1,395 @@
+/* ==========================================================================
+   PÁGINA DE OBRIGADO - WORKSHOP DESTRAVE SUA AUTOESTIMA
+   Clean Vanilla CSS - Pixel Perfect & High Conversion
+   ========================================================================== */
+
+/* Top Alert Bar */
+.obrigado-top-bar {
+  background: linear-gradient(90deg, #B93B46 0%, #F66370 50%, #B93B46 100%);
+  color: #FFFFFF;
+  text-align: center;
+  padding: 12px 16px;
+  font-family: var(--font-heading);
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.obrigado-top-bar .alert-pulse {
+  display: inline-block;
+  animation: pulseIcon 1.5s infinite;
+}
+
+@keyframes pulseIcon {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.25); }
+}
+
+/* Page Header */
+.obrigado-header {
+  background: #FFFFFF;
+  padding: 22px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  text-align: center;
+}
+
+.obrigado-logo {
+  max-width: 170px;
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Main Hero Section */
+.obrigado-hero {
+  background-color: var(--bg-cream);
+  background-image: url('../images/105425.webp');
+  background-position: top center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 60px 0 70px;
+  text-align: center;
+}
+
+.obrigado-card-main {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 45px 35px;
+  max-width: 780px;
+  margin: 0 auto;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(235, 86, 99, 0.15);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.obrigado-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FFF5F6;
+  color: var(--color-primary-burgundy);
+  border: 1px solid rgba(246, 99, 112, 0.3);
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.obrigado-title {
+  font-family: var(--font-heading);
+  font-size: 2.35rem;
+  font-weight: 800;
+  color: var(--text-dark);
+  line-height: 1.25;
+}
+
+.obrigado-title .color-rose {
+  color: var(--color-rose);
+}
+
+.obrigado-subtitle {
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  max-width: 650px;
+}
+
+.obrigado-subtitle strong {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* WhatsApp CTA Button */
+.btn-whatsapp-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+  color: #FFFFFF !important;
+  font-family: var(--font-heading);
+  font-size: 1.22rem;
+  font-weight: 800;
+  text-decoration: none;
+  padding: 20px 36px;
+  border-radius: 12px;
+  box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+  transition: all 0.3s ease;
+  width: 100%;
+  max-width: 520px;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+  animation: pulseWhatsapp 2.2s infinite;
+}
+
+.btn-whatsapp-cta:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 16px 36px rgba(37, 211, 102, 0.45);
+}
+
+@keyframes pulseWhatsapp {
+  0%, 100% {
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.35);
+  }
+  50% {
+    box-shadow: 0 16px 36px rgba(37, 211, 102, 0.65);
+    transform: scale(1.015);
+  }
+}
+
+.whatsapp-icon-svg {
+  width: 28px;
+  height: 28px;
+  fill: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.cta-lock-text {
+  font-size: 0.88rem;
+  color: #777777;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Benefits Section */
+.obrigado-benefits {
+  background: #FFFFFF;
+  padding: 70px 0 60px;
+}
+
+.section-obrigado-title {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.section-obrigado-title span {
+  color: var(--color-rose);
+}
+
+.section-obrigado-subtitle {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #666666;
+  max-width: 620px;
+  margin: 0 auto 40px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  max-width: 860px;
+  margin: 0 auto 40px;
+}
+
+.benefit-card {
+  background: #FFFDF9;
+  border: 1px solid rgba(214, 178, 154, 0.3);
+  border-radius: 12px;
+  padding: 24px 22px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+  border-color: rgba(235, 86, 99, 0.4);
+}
+
+.benefit-icon-box {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #FFF0F2 0%, #FFE4E7 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.benefit-text h4 {
+  font-family: var(--font-heading);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+}
+
+.benefit-text p {
+  font-size: 0.96rem;
+  color: #555555;
+  line-height: 1.5;
+}
+
+.benefits-cta-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Event Details Section */
+.obrigado-details {
+  background-color: var(--bg-cream);
+  padding: 70px 0 80px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  max-width: 960px;
+  margin: 0 auto 35px;
+}
+
+.detail-card {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 26px 18px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.detail-icon-circle {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #F66370 0%, #B93B46 100%);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+}
+
+.detail-label {
+  font-family: var(--font-heading);
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--color-rose);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.detail-value {
+  font-size: 1.02rem;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+
+.obrigado-email-tip {
+  max-width: 860px;
+  margin: 0 auto;
+  background: #FFFFFF;
+  border-left: 4px solid #F66370;
+  border-radius: 8px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.obrigado-email-tip p {
+  font-size: 0.98rem;
+  color: #444444;
+  line-height: 1.5;
+}
+
+.obrigado-email-tip strong {
+  color: var(--text-dark);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .details-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 767px) {
+  .obrigado-top-bar {
+    font-size: 0.88rem;
+    padding: 10px 12px;
+  }
+
+  .obrigado-hero {
+    padding: 35px 14px 45px;
+  }
+
+  .obrigado-card-main {
+    padding: 30px 18px;
+    border-radius: 12px;
+  }
+
+  .obrigado-title {
+    font-size: 1.7rem;
+  }
+
+  .obrigado-subtitle {
+    font-size: 1.02rem;
+  }
+
+  .btn-whatsapp-cta {
+    font-size: 1.08rem;
+    padding: 17px 22px;
+    width: 100%;
+  }
+
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 14px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 0 14px;
+  }
+
+  .section-obrigado-title {
+    font-size: 1.6rem;
+    padding: 0 10px;
+  }
+
+  .section-obrigado-subtitle {
+    padding: 0 14px;
+    font-size: 0.98rem;
+    margin-bottom: 25px;
+  }
+
+  .obrigado-email-tip {
+    margin: 0 14px;
+    padding: 16px;
+    flex-direction: column;
+    text-align: center;
+  }
+}
