@@ -1298,21 +1298,43 @@ ul {
   }
   
   .section-mentor {
-    padding: 50px 0 35px;
+    padding: 0 0 35px 0;
+  }
+
+  .section-mentor .container {
+    padding: 0;
+    max-width: 100%;
   }
 
   .mentor-grid {
-    grid-template-columns: 1fr;
-    gap: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .mentor-image-col {
+    width: 100%;
+    padding: 0;
+    margin: 0;
   }
 
   .mentor-img {
-    max-width: 360px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0;
   }
 
   .mentor-content {
-    padding: 0 10px;
+    position: relative;
+    z-index: 2;
+    margin: -70px 14px 0 14px;
+    width: calc(100% - 28px);
+    background: #FFFFFF;
+    border-radius: 14px;
+    padding: 30px 18px 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
   }
 
   .mentor-quote-box {
