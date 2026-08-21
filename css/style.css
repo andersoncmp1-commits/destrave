@@ -965,31 +965,35 @@ ul {
 
 .section-mentor {
   background-color: var(--bg-white);
-  background-image: url('../images/132306.webp');
-  background-position: left center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  padding: 80px 0;
-  display: flex;
-  align-items: center;
-  min-height: 750px;
+  padding: 85px 0;
+  position: relative;
 }
 
-.section-mentor .container {
+.mentor-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 50px;
+}
+
+.mentor-image-col {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
+  align-items: center;
+}
+
+.mentor-img {
   width: 100%;
+  max-width: 530px;
+  height: auto;
+  display: block;
 }
 
 .mentor-content {
-  max-width: 580px;
   width: 100%;
-  margin-left: auto;
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  background: transparent;
-  padding: 20px 0;
+  gap: 16px;
 }
 
 .mentor-title {
@@ -1178,20 +1182,8 @@ ul {
     flex: 0 0 calc(50% - 13px);
   }
 
-  .section-mentor {
-    background-position: -80px center;
-    padding: 60px 0;
-    min-height: auto;
-  }
-
-  .mentor-content {
-    max-width: 520px;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(6px);
-    -webkit-backdrop-filter: blur(6px);
-    padding: 30px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+  .mentor-grid {
+    gap: 30px;
   }
 }
 
@@ -1306,25 +1298,21 @@ ul {
   }
   
   .section-mentor {
-    background-color: var(--bg-white);
-    background-image: url('../images/132106.webp');
-    background-position: top center;
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    padding-top: 73%;
-    padding-bottom: 30px;
-    padding-left: 14px;
-    padding-right: 14px;
-    min-height: auto;
-    display: block;
+    padding: 50px 0 35px;
   }
-  
+
+  .mentor-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .mentor-img {
+    max-width: 360px;
+    margin: 0 auto;
+  }
+
   .mentor-content {
-    max-width: 100%;
-    background: #FFFFFF;
-    border-radius: 10px;
-    padding: 30px 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    padding: 0 10px;
   }
 
   .mentor-quote-box {
