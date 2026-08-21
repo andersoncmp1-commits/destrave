@@ -4,25 +4,98 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // 1. UTM & Query String Preservation for Checkout Links
-  function applyUTMParameters() {
-    const currentParams = new URLSearchParams(window.location.search);
-    if (!currentParams.toString()) return;
+  // 1. UTM & SCK Tracking for Hotmart / Checkout Links
+  function applyTrackingParameters() {
+    console.log('%cScript de rastreio by Comunidade Nova Ordem do Digital - Dericson Calari e Samuel Choairy', 'color: purple; font-size: 20px;');
 
-    const checkoutLinks = document.querySelectorAll('a[href*="sun.eduzz.com"], a[href*="pay.hotmart.com"]');
-    checkoutLinks.forEach(link => {
-      try {
-        const url = new URL(link.href);
-        currentParams.forEach((value, key) => {
-          url.searchParams.set(key, value);
-        });
-        link.href = url.toString();
-      } catch (e) {
-        console.error('Error updating checkout link:', e);
+    try {
+      let parametros = ["utm_source"];
+      const url = new URL(window.location.href);
+      const params = new URLSearchParams(url.search);
+
+      for (const [key] of params) {
+        if (!parametros.includes(key)) {
+          parametros.push(key);
+        }
       }
-    });
+
+      const urlParamsCapt = new URLSearchParams(window.location.search);
+      const urlParamsCaptReferrer = new URLSearchParams(document.referrer.split('?')[1] || '');
+      let utms = {};
+
+      parametros.forEach(el => {
+        if (el === "utm_source") {
+          let refHostname = "";
+          try {
+            if (document.referrer) {
+              refHostname = new URL(document.referrer).hostname;
+            }
+          } catch (_) {}
+          utms[el] = urlParamsCapt.get(el) ?? (urlParamsCaptReferrer.get(el) ?? (refHostname || "direto"));
+        } else {
+          utms[el] = urlParamsCapt.get(el) ?? (urlParamsCaptReferrer.get(el) ?? "");
+        }
+      });
+
+      let scks = Object.values(utms).filter(value => value !== "" && value !== null && value !== undefined);
+
+      let currentSckValues = [];
+      if (urlParamsCapt.get('sck')) {
+        currentSckValues = urlParamsCapt.get('sck').split('|');
+      }
+      scks = scks.filter(value => !currentSckValues.includes(value));
+
+      const updateLinks = (el, elURL) => {
+        const elSearchParams = new URLSearchParams(elURL.search);
+        let modified = false;
+        for (let key in utms) {
+          if (utms[key] && !elSearchParams.has(key)) {
+            elSearchParams.append(key, utms[key]);
+            modified = true;
+          }
+        }
+        if (!elSearchParams.has('sck') && scks.length > 0) {
+          elSearchParams.append('sck', scks.join('|'));
+          modified = true;
+        }
+        if (modified) {
+          return elURL.origin + elURL.pathname + "?" + elSearchParams.toString() + (elURL.hash || "");
+        }
+        return el.href;
+      };
+
+      document.querySelectorAll('a').forEach(el => {
+        try {
+          if (!el.href || el.getAttribute('href')?.startsWith('#') || el.href.startsWith('javascript:') || el.href.startsWith('mailto:') || el.href.startsWith('tel:')) return;
+          const elURL = new URL(el.href);
+          if (!elURL.hash || el.href.includes('pay.hotmart.com') || el.href.includes('sun.eduzz.com')) {
+            el.href = updateLinks(el, elURL);
+          }
+        } catch (e) {
+          // ignore invalid URLs
+        }
+      });
+
+      document.querySelectorAll('iframe').forEach(iframe => {
+        try {
+          let actualSrc = iframe.hasAttribute('data-src') ? iframe.getAttribute('data-src') : iframe.src;
+          if (actualSrc && !actualSrc.startsWith('javascript:')) {
+            const iframeURL = new URL(actualSrc);
+            if (iframe.hasAttribute('data-src')) {
+              iframe.setAttribute('data-src', updateLinks(iframe, iframeURL));
+            } else {
+              iframe.src = updateLinks(iframe, iframeURL);
+            }
+          }
+        } catch (e) {
+          // ignore invalid URLs
+        }
+      });
+    } catch (err) {
+      console.error('Erro no script de rastreio:', err);
+    }
   }
-  applyUTMParameters();
+  applyTrackingParameters();
 
   // 2. Smooth Scrolling for Internal Anchors with Accurate Offset
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
